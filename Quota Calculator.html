@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<body style="margin: 100px;">
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 16px;
+    }
+    input {
+        font-size: 16px;
+        background-color: #eeeeee;
+        border: 0px;
+    }
+    button {
+        font-size: 16px;
+        font-weight: bold;
+        background-color: black;
+        color: white;
+        border: 0px;
+    }
+    textarea {
+    resize: none;
+    }
+    
+    
+    
+    
+    
+</style>
+
+    
+<span style="font-size: 24px; font-weight: bold;">Quota Calculator</span><br><br><br>
+    
+<form>
+<input type="text" id="imagesTaken" size="5" style="text-align: center;" autocomplete="off">
+ Images edited today.
+<br><br>
+
+<input type="text" id="hoursWorkedToday" size="5" style="text-align: center;" autocomplete="off">
+ Hours imager worked today.
+<br><br>
+
+<input type="text" id="quota" size="5" style="text-align: center;" autocomplete="off">
+ Expected daily quota on a normal day.
+<br><br>
+
+<input type="text" id="fullDaysHours" size="5" style="text-align: center;" autocomplete="off">
+ Normal Day's Hours.
+<br><br>
+
+<button type="submit" onClick="giveTotals()">Calculate</button>
+</form>
+<br><br><br>
+    
+
+    
+<textarea rows="10" cols="50" id="theAnswers" style="border: 0px; font-size: 16px;" readonly></textarea>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script>
+document.getElementById('imagesTaken').focus();
+
+var normalDaysHours = 7.5;
+document.getElementById('fullDaysHours').value=normalDaysHours;
+document.getElementById('hoursWorkedToday').value=normalDaysHours;
+var normalQuota = 60;
+document.getElementById('quota').value=normalQuota;
+
+
+function giveTotals() {
+	var imagesTaken = document.getElementById("imagesTaken").value;
+	var hoursWorkedToday = document.getElementById("hoursWorkedToday").value;
+	var quota = document.getElementById("quota").value;
+	var fullDaysHours = document.getElementById("fullDaysHours").value;
+
+	var todaysScore = ((imagesTaken * (100 / quota)) / (hoursWorkedToday * (100 / fullDaysHours)) * 100);
+	var todaysScore = Math.round(todaysScore);
+
+	var expectedQuota = (quota * (hoursWorkedToday * (100 / fullDaysHours)));
+	var expectedQuota = Math.round (expectedQuota / 100);
+	var theDifference = (expectedQuota - imagesTaken);
+	var perHour = (imagesTaken / hoursWorkedToday);
+	var perHour = Math.round (perHour * 10) / 10;
+		
+	var optimalPerHour = Math.round((quota / fullDaysHours) * 10) / 10;
+		
+
+	if (theDifference > 0) {
+		var secondMessage = "\n\n" + theDifference + " more needed to reach the expected quota of " + expectedQuota + "."
+	} else {
+		if (theDifference == 0) {
+			var secondMessage = "\n\nReached expected quota."
+		} else {
+			var secondMessage = "\n\n" + ((theDifference) * -1) + " more than the expected quota of " + expectedQuota + "."
+		}
+	}
+
+
+
+	document.getElementById('theAnswers').value=("Edited " + imagesTaken + " image(s) in " + hoursWorkedToday + " hours." + secondMessage + "\n\n" + perHour + " edits per hour. (Optimal to reach quota: " + optimalPerHour + "/hr) \n\nScore: " + todaysScore + "%");
+
+	event.preventDefault(); // Prevents the form from rsetting when button is pressed
+	return false;
+}
+
+
+
+
+</script>
+
+</body>
+</html>
