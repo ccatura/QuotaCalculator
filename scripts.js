@@ -41,6 +41,8 @@ function giveTotals() {
 	document.getElementById("theAnswers").style.borderColor = "black";
 	document.getElementById("theAnswers").style.borderStyle = "solid";
 	document.getElementById("theAnswers").style.borderWidth = "4px";
+	document.getElementById("theAnswers").style.marginTop   = "40px";
+	document.getElementById("theAnswers").style.backgroundColor = "white";
 
 
 

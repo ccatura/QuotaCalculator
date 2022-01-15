@@ -15,6 +15,8 @@ form {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    background-color: rgb(240,240,240);
+    padding: 20px 20px 20px 20px;
 }
 
 h1 {
@@ -23,8 +25,8 @@ h1 {
 
 input {
     font-size: 16px;
-    background-color: #eeeeee;
-    border: 0px;
+    background-color: rgb(255,255,255);
+    border: 1px solid gray;
 }
 
 button {
@@ -57,7 +59,7 @@ textarea {
 }
 
 #theAnswers {
-    margin-top: 40px;
+    margin: 0;
     align-self: flex-start;
     padding: 10px;
 }
