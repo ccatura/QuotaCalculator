@@ -67,3 +67,31 @@ textarea {
     align-self: flex-start;
     padding: 10px;
 }
+
+.help {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+.help .popup {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 20px;
+    border: 2px solid black;
+    background-color: white;
+    box-shadow: 5px 5px 5px black;
+    font-size: 15px;
+    width: 70%;
+}
+
+.help:active .popup,
+.help:hover .popup {
+    display: block;
+}
