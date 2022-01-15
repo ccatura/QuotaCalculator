@@ -66,6 +66,7 @@ textarea {
     margin: 0;
     align-self: flex-start;
     padding: 10px;
+    width: 90%;
 }
 
 .help {
