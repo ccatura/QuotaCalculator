@@ -16,41 +16,30 @@
 
 <body>
 
+<div class="container">
+	<h1>Quota Calculator</h1>
 
-<span>Quota Calculator</span><br><br><br>
+	<form>
+		<input type="text" id="imagesTaken" size="5" autocomplete="off">
+		<div class="desc">Images edited today.</div>
 
-<form>
-<!-- Input for how many images edited today here -->
-<input type="text" id="imagesTaken" size="5" autocomplete="off">
- Images edited today.
-<br><br>
+		<input type="text" id="hoursWorkedToday" size="5" autocomplete="off">
+		<div class="desc">Hours imager worked today.</div>
 
-<!-- Input for amount of hours worked if different than the default -->
-<input type="text" id="hoursWorkedToday" size="5" autocomplete="off">
- Hours imager worked today.
-<br><br>
+		<input type="text" id="quota" size="5" autocomplete="off">
+		<div class="desc">Expected daily quota on a normal day.</div>
 
-<!-- Input for the daily quota if different thatn the default -->
-<input type="text" id="quota" size="5" autocomplete="off">
- Expected daily quota on a normal day.
-<br><br>
+		<input type="text" id="fullDaysHours" size="5" autocomplete="off">
+		<div class="desc">Normal Day's Hours.</div>
 
-<!-- Input for how the amount of a normal day's hours if different than the default -->
-<input type="text" id="fullDaysHours" size="5" autocomplete="off">
- Normal Day's Hours.
-<br><br>
+		<button type="submit" onClick="giveTotals()">Calculate</button>
 
-<!-- The calculate button -->
-<button type="submit" onClick="giveTotals()">Calculate</button>
-</form>
-<br><br><br>
-
-<!-- This TEXTAREA is where the results will be displayed -->
-<textarea rows="10" cols="50" id="theAnswers" readonly></textarea>
+	<div id="theAnswers"></div>
+	</form>
 
 
 
-
+</div>
 
 </body>
 </html>

@@ -28,7 +28,7 @@ function giveTotals() {
 
 
 	if (theDifference > 0) {
-		var secondMessage = "\n\n" + theDifference + " short of the expected quota of " + expectedQuota + "."
+		var secondMessage = "\n\n" + theDifference + " edits short of the expected quota of " + expectedQuota + "."
 	} else {
 		if (theDifference == 0) {
 			var secondMessage = "\n\nReached expected quota."
@@ -38,8 +38,13 @@ function giveTotals() {
 	}
 
 
+	document.getElementById("theAnswers").style.borderColor = "black";
+	document.getElementById("theAnswers").style.borderStyle = "solid";
+	document.getElementById("theAnswers").style.borderWidth = "4px";
 
-	document.getElementById('theAnswers').value=("Edited " + imagesTaken + " image(s) in " + hoursWorkedToday + " hours." + secondMessage + "\n\n" + perHour + " edits per hour. (Optimal to reach quota: " + optimalPerHour + "/hr) \n\nScore: " + todaysScore + "%");
+
+
+	document.getElementById('theAnswers').innerText=("Edited " + imagesTaken + " image(s) in " + hoursWorkedToday + " hours." + secondMessage + "\n\n" + perHour + " edits per hour.\n(Optimal to reach quota: " + optimalPerHour + "/hr) \n\nScore: " + todaysScore + "%");
 
 	event.preventDefault(); // Prevents the form from resetting when button is pressed
 	return false;
